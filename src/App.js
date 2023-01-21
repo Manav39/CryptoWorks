@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import "./App.css";
+import { Nav, Container } from "react-bootstrap";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Price from "./components/Price";
+import News from "./components/News";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+import Currency from "./components/Currency";
+import CoinPage from "./components/CoinPage";
+import Navbar from "./components/Navbar";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/price" element={<Price />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/currency" element={<Currency />} />
+          <Route path="/currency/:id" element={<CoinPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
