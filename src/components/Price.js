@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Coin from "./Coin";
+import { Link, Route } from "react-router-dom";
+import CoinDetails from "./CoinDetails";
 const Price = () => {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
@@ -11,7 +13,6 @@ const Price = () => {
       )
       .then((res) => {
         setCoins(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -36,6 +37,7 @@ const Price = () => {
       </div>
       {filteredCoins.map((coin) => {
         return (
+          <Link to={`/price/${coin.id}`} element={<CoinDetails/>} style={{textDecoration:'none'}}>
           <Coin
             key={coin.id}
             name={coin.name}
@@ -46,6 +48,7 @@ const Price = () => {
             priceChange={coin.price_change_percentage_24h}
             volume={coin.total_volume}
           />
+          </Link>
         );
       })}
     </div>

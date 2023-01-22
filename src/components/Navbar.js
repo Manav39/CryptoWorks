@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./logo1.png";
+import './Navbar.css'
 const Navbar = () => {
   return (
     <div>
@@ -22,11 +23,6 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/currency" className="styling-links">
-                  Currencies
-                </Link>
-              </li>
-              <li>
                 <Link to="/price" className="styling-links">
                   Price
                 </Link>
@@ -36,11 +32,11 @@ const Navbar = () => {
                   News
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/contact" className="styling-links">
                   Contact
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
